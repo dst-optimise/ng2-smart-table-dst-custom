@@ -2,7 +2,7 @@
   "name": "ng2-smart-table-dst-custom",
   "version": "1.2.2",
   "description": "Angular Smart Table",
-  "main": "./bundles/table.umd.js",
+  "main": "./index.ts",
   "module": "./index.ts",
   "typings": "./index.d.ts",
   "author": "akveo",
