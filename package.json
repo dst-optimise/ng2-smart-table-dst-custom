@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dst-optimise/ng2-smart-table.git"
+    "url": "git+https://github.com/dst-optimise/ng2-smart-table-dst-custom.git"
   },
   "bugs": {
     "url": "http://akveo.github.io/ng2-smart-table/issues"
