@@ -1,6 +1,6 @@
 {
-  "_from": "ng2-smart-table@^1.2.2",
-  "_id": "ng2-smart-table@1.2.2",
+  "_from": "ng2-smart-table-dst-customised@^1.2.4",
+  "_id": "ng2-smart-table-dst-customised@1.2.4",
   "_inBundle": false,
   "_integrity": "sha512-JJBsaK96Pd4baAYobJGXLjK9EOSYwR6PLnHEGZU7yLNoCrK+JjpJtZkpRouCWaYtdl0rdT2QdvmaAlGy39lt/Q==",
   "_location": "/ng2-smart-table",
@@ -8,20 +8,20 @@
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "ng2-smart-table@^1.2.2",
-    "name": "ng2-smart-table",
-    "escapedName": "ng2-smart-table",
-    "rawSpec": "^1.2.2",
+    "raw": "ng2-smart-table-dst-customised@^1.2.4",
+    "name": "ng2-smart-table-dst-customised",
+    "escapedName": "ng2-smart-table-dst-customised",
+    "rawSpec": "^1.2.4",
     "saveSpec": null,
-    "fetchSpec": "^1.2.2"
+    "fetchSpec": "^1.2.4"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/ng2-smart-table/-/ng2-smart-table-1.2.2.tgz",
+  "_resolved": "https://registry.npmjs.org/ng2-smart-table-dst-customised/-/ng2-smart-table-1.2.2.tgz",
   "_shasum": "1b84d517a62a7982ecca699d3a8dee0a3b122666",
-  "_spec": "ng2-smart-table@^1.2.2",
+  "_spec": "ng2-smart-table@^1.2.4",
   "_where": "C:\\Users\\Computer-2\\source\\repos\\box2\\src\\client",
   "author": {
     "name": "akveo"
@@ -54,9 +54,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+http://akveo.github.io/ng2-smart-table.git"
+    "url": "git+https://github.com/dst-optimise/ng2-smart-table-dst-customised.git"
   },
   "scripts": {},
   "typings": "./index.d.ts",
-  "version": "1.2.2"
+  "version": "1.2.4"
 }
