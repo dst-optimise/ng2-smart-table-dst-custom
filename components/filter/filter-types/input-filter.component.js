@@ -43,7 +43,7 @@ var InputFilterComponent = (function (_super) {
 InputFilterComponent = __decorate([
     Component({
         selector: 'input-filter',
-        template: "\n    <input [(ngModel)]=\"query\"\n           [ngClass]=\"inputClass\"\n           [formControl]=\"inputControl\"\n           class=\"form-control\"\n           type=\"text\"\n           placeholder=\"{{ column.title }}\" />\n  ",
+        template: "\n    <input [(ngModel)]=\"query\"\n           [ngClass]=\"inputClass\"\n           [formControl]=\"inputControl\"\n           class=\"form-control\"\n           type=\"text\"\n           placeholder=\"&#8981;\" />\n  ",
     }),
     __metadata("design:paramtypes", [])
 ], InputFilterComponent);
