@@ -1,7 +1,7 @@
 {
   "name": "ng2-smart-table-dst-custom",
   "version": "1.2.2",
-  "description": "Angular Smart Table",
+  "description": "Angular Smart Table DST Custom",
   "main": "./index.ts",
   "module": "./index.ts",
   "typings": "./index.d.ts",
