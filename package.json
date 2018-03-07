@@ -1,5 +1,5 @@
 {
-  "name": "ng2-smart-table",
+  "name": "ng2-smart-table-dst-custom",
   "version": "1.2.2",
   "description": "Angular Smart Table",
   "main": "./bundles/table.umd.js",
