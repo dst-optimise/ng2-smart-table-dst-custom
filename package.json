@@ -1,14 +1,13 @@
 {
   "name": "ng2-smart-table-dst-customised",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Angular Smart Table DST Custom",
   "main": "./index.js",
   "module": "./index.js",
   "typings": "./index.d.ts",
   "author": "akveo",
   "license": "MIT",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dst-optimise/ng2-smart-table-dst-custom.git"
