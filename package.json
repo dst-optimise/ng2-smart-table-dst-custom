@@ -46,7 +46,7 @@
   "license": "MIT",
   "main": "./bundles/table.umd.js",
   "module": "./index.js",
-  "name": "ng2-smart-table",
+  "name": "ng2-smart-table-dst-customised",
   "peerDependencies": {
     "@angular/common": "^4.0.0",
     "@angular/core": "^4.0.0",
