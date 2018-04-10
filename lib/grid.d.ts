@@ -30,6 +30,9 @@ export declare class Grid {
     create(row: Row, confirmEmitter: EventEmitter<any>): void;
     save(row: Row, confirmEmitter: EventEmitter<any>): void;
     delete(row: Row, confirmEmitter: EventEmitter<any>): void;
+    custom1(row: Row, confirmEmitter: EventEmitter<any>): void;
+    custom2(row: Row, confirmEmitter: EventEmitter<any>): void;
+    custom3(row: Row, confirmEmitter: EventEmitter<any>): void;
     processDataChange(changes: any): void;
     shouldProcessChange(changes: any): boolean;
     determineRowToSelect(changes: any): Row;

@@ -15,6 +15,9 @@ var TbodyEditDeleteComponent = (function () {
     function TbodyEditDeleteComponent() {
         this.edit = new EventEmitter();
         this.delete = new EventEmitter();
+        this.custom1 = new EventEmitter();
+        this.custom2 = new EventEmitter();
+        this.custom3 = new EventEmitter();
         this.editRowSelect = new EventEmitter();
     }
     TbodyEditDeleteComponent.prototype.onEdit = function (event) {
@@ -44,11 +47,56 @@ var TbodyEditDeleteComponent = (function () {
             this.grid.delete(this.row, this.deleteConfirm);
         }
     };
+    TbodyEditDeleteComponent.prototype.onCustom1 = function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.grid.getSetting('mode') === 'external') {
+            this.custom1.emit({
+                data: this.row.getData(),
+                source: this.source,
+            });
+        }
+        else {
+            this.grid.custom1(this.row);
+        }
+    };
+    TbodyEditDeleteComponent.prototype.onCustom2 = function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.grid.getSetting('mode') === 'external') {
+            this.custom2.emit({
+                data: this.row.getData(),
+                source: this.source,
+            });
+        }
+        else {
+            this.grid.custom2(this.row);
+        }
+    };
+    TbodyEditDeleteComponent.prototype.onCustom3 = function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.grid.getSetting('mode') === 'external') {
+            this.custom3.emit({
+                data: this.row.getData(),
+                source: this.source,
+            });
+        }
+        else {
+            this.grid.custom3(this.row);
+        }
+    };
     TbodyEditDeleteComponent.prototype.ngOnChanges = function () {
         this.isActionEdit = this.grid.getSetting('actions.edit');
         this.isActionDelete = this.grid.getSetting('actions.delete');
+        this.isActionCustom1 = this.grid.getSetting('actions.custom1');
+        this.isActionCustom2 = this.grid.getSetting('actions.custom2');
+        this.isActionCustom3 = this.grid.getSetting('actions.custom3');
         this.editRowButtonContent = this.grid.getSetting('edit.editButtonContent');
         this.deleteRowButtonContent = this.grid.getSetting('delete.deleteButtonContent');
+        this.custom1RowButtonContent = this.grid.getSetting('custom1.custom1ButtonContent');
+        this.custom2RowButtonContent = this.grid.getSetting('custom2.custom2ButtonContent');
+        this.custom3RowButtonContent = this.grid.getSetting('custom3.custom3ButtonContent');
     };
     return TbodyEditDeleteComponent;
 }());
@@ -83,12 +131,24 @@ __decorate([
 __decorate([
     Output(),
     __metadata("design:type", Object)
+], TbodyEditDeleteComponent.prototype, "custom1", void 0);
+__decorate([
+    Output(),
+    __metadata("design:type", Object)
+], TbodyEditDeleteComponent.prototype, "custom2", void 0);
+__decorate([
+    Output(),
+    __metadata("design:type", Object)
+], TbodyEditDeleteComponent.prototype, "custom3", void 0);
+__decorate([
+    Output(),
+    __metadata("design:type", Object)
 ], TbodyEditDeleteComponent.prototype, "editRowSelect", void 0);
 TbodyEditDeleteComponent = __decorate([
     Component({
         selector: 'ng2-st-tbody-edit-delete',
         changeDetection: ChangeDetectionStrategy.OnPush,
-        template: "\n    <a href=\"#\" *ngIf=\"isActionEdit\" class=\"ng2-smart-action ng2-smart-action-edit-edit\"\n        [innerHTML]=\"editRowButtonContent\" (click)=\"onEdit($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionDelete\" class=\"ng2-smart-action ng2-smart-action-delete-delete\"\n        [innerHTML]=\"deleteRowButtonContent\" (click)=\"onDelete($event)\"></a>\n  ",
+        template: "\n    <a href=\"#\" *ngIf=\"isActionEdit\" class=\"ng2-smart-action ng2-smart-action-edit-edit\"\n        [innerHTML]=\"editRowButtonContent\" (click)=\"onEdit($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionDelete\" class=\"ng2-smart-action ng2-smart-action-delete-delete\"\n        [innerHTML]=\"deleteRowButtonContent\" (click)=\"onDelete($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom1\" class=\"ng2-smart-action ng2-smart-action-custom1-custom1\"\n        [innerHTML]=\"custom1RowButtonContent\" (click)=\"onCustom1($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom2\" class=\"ng2-smart-action ng2-smart-action-custom2-custom2\"\n        [innerHTML]=\"custom2RowButtonContent\" (click)=\"onCustom2($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom3\" class=\"ng2-smart-action ng2-smart-action-custom3-custom3\"\n        [innerHTML]=\"custom3RowButtonContent\" (click)=\"onCustom3($event)\"></a>\n  ",
     })
 ], TbodyEditDeleteComponent);
 export { TbodyEditDeleteComponent };

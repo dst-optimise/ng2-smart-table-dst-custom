@@ -396,7 +396,7 @@ var Grid = (function () {
         return position == this.getSetting('actions.position');
     };
     Grid.prototype.isActionsVisible = function () {
-        return this.getSetting('actions.add') || this.getSetting('actions.edit') || this.getSetting('actions.delete') || this.getSetting('actions.custom').length;
+        return this.getSetting('actions.add') || this.getSetting('actions.edit') || this.getSetting('actions.delete') || this.getSetting('actions.custom1') || this.getSetting('actions.custom2') || this.getSetting('actions.custom3') || this.getSetting('actions.custom').length;
     };
     Grid.prototype.isMultiSelectVisible = function () {
         return this.getSetting('selectMode') === 'multi';
@@ -1825,6 +1825,9 @@ var Ng2SmartTableTbodyComponent = (function () {
         this.edit = new _angular_core.EventEmitter();
         this.delete = new _angular_core.EventEmitter();
         this.custom = new _angular_core.EventEmitter();
+        this.custom1 = new _angular_core.EventEmitter();
+        this.custom2 = new _angular_core.EventEmitter();
+        this.custom3 = new _angular_core.EventEmitter();
         this.edited = new _angular_core.EventEmitter();
         this.userSelectRow = new _angular_core.EventEmitter();
         this.editRowSelect = new _angular_core.EventEmitter();
@@ -1840,6 +1843,9 @@ var Ng2SmartTableTbodyComponent = (function () {
         this.isActionAdd = this.grid.getSetting('actions.add');
         this.isActionEdit = this.grid.getSetting('actions.edit');
         this.isActionDelete = this.grid.getSetting('actions.delete');
+        this.isActionCustom1 = this.grid.getSetting('actions.custom1');
+        this.isActionCustom2 = this.grid.getSetting('actions.custom2');
+        this.isActionCustom3 = this.grid.getSetting('actions.custom3');
         this.noDataMessage = this.grid.getSetting('noDataMessage');
     };
     return Ng2SmartTableTbodyComponent;
@@ -1883,6 +1889,18 @@ __decorate$25([
 __decorate$25([
     _angular_core.Output(),
     __metadata$20("design:type", Object)
+], Ng2SmartTableTbodyComponent.prototype, "custom1", void 0);
+__decorate$25([
+    _angular_core.Output(),
+    __metadata$20("design:type", Object)
+], Ng2SmartTableTbodyComponent.prototype, "custom2", void 0);
+__decorate$25([
+    _angular_core.Output(),
+    __metadata$20("design:type", Object)
+], Ng2SmartTableTbodyComponent.prototype, "custom3", void 0);
+__decorate$25([
+    _angular_core.Output(),
+    __metadata$20("design:type", Object)
 ], Ng2SmartTableTbodyComponent.prototype, "custom", void 0);
 __decorate$25([
     _angular_core.Output(),
@@ -1908,7 +1926,7 @@ Ng2SmartTableTbodyComponent = __decorate$25([
     _angular_core.Component({
         selector: '[ng2-st-tbody]',
         styles: [":host .ng2-smart-row.selected{background:rgba(0,0,0,.05)}:host .ng2-smart-row .ng2-smart-actions.ng2-smart-action-multiple-select{text-align:center} /*# sourceMappingURL=tbody.component.css.map */ "],
-        template: "<tr *ngFor=\"let row of grid.getRows()\" (click)=\"userSelectRow.emit(row)\" (mouseover)=\"rowHover.emit(row)\" class=\"ng2-smart-row\" [className]=\"rowClassFunction(row)\" [ngClass]=\"{selected: row.isSelected}\"><td *ngIf=\"isMultiSelectVisible\" class=\"ng2-smart-actions ng2-smart-action-multiple-select\" (click)=\"multipleSelectRow.emit(row)\"><input type=\"checkbox\" class=\"form-control\" [ngModel]=\"row.isSelected\"></td><td *ngIf=\"!row.isInEditing && showActionColumnLeft\" class=\"ng2-smart-actions\"><ng2-st-tbody-custom [grid]=\"grid\" (custom)=\"custom.emit($event)\" [row]=\"row\" [source]=\"source\"></ng2-st-tbody-custom><ng2-st-tbody-edit-delete [grid]=\"grid\" [deleteConfirm]=\"deleteConfirm\" [editConfirm]=\"editConfirm\" (edit)=\"edit.emit(row)\" (delete)=\"delete.emit(row)\" (editRowSelect)=\"editRowSelect.emit($event)\" [row]=\"row\" [source]=\"source\"></ng2-st-tbody-edit-delete></td><td *ngIf=\"row.isInEditing && showActionColumnLeft\" class=\"ng2-smart-actions\"><ng2-st-tbody-create-cancel [grid]=\"grid\" [row]=\"row\" [editConfirm]=\"editConfirm\"></ng2-st-tbody-create-cancel></td><td *ngFor=\"let cell of row.cells\"><ng2-smart-table-cell [cell]=\"cell\" [grid]=\"grid\" [row]=\"row\" [isNew]=\"false\" [mode]=\"mode\" [editConfirm]=\"editConfirm\" [inputClass]=\"editInputClass\" [isInEditing]=\"row.isInEditing\"></ng2-smart-table-cell></td><td *ngIf=\"row.isInEditing && showActionColumnRight\" class=\"ng2-smart-actions\"><ng2-st-tbody-create-cancel [grid]=\"grid\" [row]=\"row\" [editConfirm]=\"editConfirm\"></ng2-st-tbody-create-cancel></td><td *ngIf=\"!row.isInEditing && showActionColumnRight\" class=\"ng2-smart-actions\"><ng2-st-tbody-custom [grid]=\"grid\" (custom)=\"custom.emit($event)\" [row]=\"row\" [source]=\"source\"></ng2-st-tbody-custom><ng2-st-tbody-edit-delete [grid]=\"grid\" [deleteConfirm]=\"deleteConfirm\" [editConfirm]=\"editConfirm\" [row]=\"row\" [source]=\"source\" (edit)=\"edit.emit(row)\" (delete)=\"delete.emit(row)\" (editRowSelect)=\"editRowSelect.emit($event)\"></ng2-st-tbody-edit-delete></td></tr><tr *ngIf=\"grid.getRows().length == 0\"><td [attr.colspan]=\"grid.getColumns().length + (isActionAdd || isActionEdit || isActionDelete)\">{{ noDataMessage }}</td></tr>",
+        template: "<tr *ngFor=\"let row of grid.getRows()\" (click)=\"userSelectRow.emit(row)\" (mouseover)=\"rowHover.emit(row)\" class=\"ng2-smart-row\" [className]=\"rowClassFunction(row)\" [ngClass]=\"{selected: row.isSelected}\"><td *ngIf=\"isMultiSelectVisible\" class=\"ng2-smart-actions ng2-smart-action-multiple-select\" (click)=\"multipleSelectRow.emit(row)\"><input type=\"checkbox\" class=\"form-control\" [ngModel]=\"row.isSelected\"></td><td *ngIf=\"!row.isInEditing && showActionColumnLeft\" class=\"ng2-smart-actions\"><ng2-st-tbody-custom [grid]=\"grid\" (custom)=\"custom.emit($event)\" [row]=\"row\" [source]=\"source\"></ng2-st-tbody-custom><ng2-st-tbody-edit-delete [grid]=\"grid\" [deleteConfirm]=\"deleteConfirm\" [editConfirm]=\"editConfirm\" (edit)=\"edit.emit(row)\" (delete)=\"delete.emit(row)\" (custom1)=\"custom1.emit(row)\" (custom2)=\"custom2.emit(row)\" (custom3)=\"custom3.emit(row)\" (editRowSelect)=\"editRowSelect.emit($event)\" [row]=\"row\" [source]=\"source\"></ng2-st-tbody-edit-delete></td><td *ngIf=\"row.isInEditing && showActionColumnLeft\" class=\"ng2-smart-actions\"><ng2-st-tbody-create-cancel [grid]=\"grid\" [row]=\"row\" [editConfirm]=\"editConfirm\"></ng2-st-tbody-create-cancel></td><td *ngFor=\"let cell of row.cells\"><ng2-smart-table-cell [cell]=\"cell\" [grid]=\"grid\" [row]=\"row\" [isNew]=\"false\" [mode]=\"mode\" [editConfirm]=\"editConfirm\" [inputClass]=\"editInputClass\" [isInEditing]=\"row.isInEditing\"></ng2-smart-table-cell></td><td *ngIf=\"row.isInEditing && showActionColumnRight\" class=\"ng2-smart-actions\"><ng2-st-tbody-create-cancel [grid]=\"grid\" [row]=\"row\" [editConfirm]=\"editConfirm\"></ng2-st-tbody-create-cancel></td><td *ngIf=\"!row.isInEditing && showActionColumnRight\" class=\"ng2-smart-actions\"><ng2-st-tbody-custom [grid]=\"grid\" (custom)=\"custom.emit($event)\" [row]=\"row\" [source]=\"source\"></ng2-st-tbody-custom><ng2-st-tbody-edit-delete [grid]=\"grid\" [deleteConfirm]=\"deleteConfirm\" [editConfirm]=\"editConfirm\" [row]=\"row\" [source]=\"source\" (edit)=\"edit.emit(row)\" (delete)=\"delete.emit(row)\" (custom1)=\"custom1.emit(row)\" (custom2)=\"custom2.emit(row)\" (custom3)=\"custom3.emit(row)\" (editRowSelect)=\"editRowSelect.emit($event)\"></ng2-st-tbody-edit-delete></td></tr><tr *ngIf=\"grid.getRows().length == 0\"><td [attr.colspan]=\"grid.getColumns().length + (isActionAdd || isActionEdit || isActionDelete || isActionCustom1 || isActionCustom2 || isActionCustom3)\">{{ noDataMessage }}</td></tr>",
     })
 ], Ng2SmartTableTbodyComponent);
 
@@ -1972,6 +1990,9 @@ var TbodyEditDeleteComponent = (function () {
     function TbodyEditDeleteComponent() {
         this.edit = new _angular_core.EventEmitter();
         this.delete = new _angular_core.EventEmitter();
+        this.custom1 = new _angular_core.EventEmitter();
+        this.custom2 = new _angular_core.EventEmitter();
+        this.custom3 = new _angular_core.EventEmitter();
         this.editRowSelect = new _angular_core.EventEmitter();
     }
     TbodyEditDeleteComponent.prototype.onEdit = function (event) {
@@ -2001,11 +2022,30 @@ var TbodyEditDeleteComponent = (function () {
             this.grid.delete(this.row, this.deleteConfirm);
         }
     };
+    TbodyEditDeleteComponent.prototype.onCustom1 = function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.grid.getSetting('mode') === 'external') {
+            this.custom1.emit({
+                data: this.row.getData(),
+                source: this.source,
+            });
+        }
+        else {
+            this.grid.custom1(this.row);
+        }
+    };
     TbodyEditDeleteComponent.prototype.ngOnChanges = function () {
         this.isActionEdit = this.grid.getSetting('actions.edit');
         this.isActionDelete = this.grid.getSetting('actions.delete');
+        this.isActionCustom1 = this.grid.getSetting('actions.custom1');
+        this.isActionCustom2 = this.grid.getSetting('actions.custom2');
+        this.isActionCustom3 = this.grid.getSetting('actions.custom3');
         this.editRowButtonContent = this.grid.getSetting('edit.editButtonContent');
         this.deleteRowButtonContent = this.grid.getSetting('delete.deleteButtonContent');
+        this.custom1RowButtonContent = this.grid.getSetting('custom1.custom1ButtonContent');
+        this.custom2RowButtonContent = this.grid.getSetting('custom2.custom1ButtonContent');
+        this.custom3RowButtonContent = this.grid.getSetting('custom3.custom1ButtonContent');
     };
     return TbodyEditDeleteComponent;
 }());
@@ -2040,12 +2080,24 @@ __decorate$27([
 __decorate$27([
     _angular_core.Output(),
     __metadata$22("design:type", Object)
+], TbodyEditDeleteComponent.prototype, "custom1", void 0);
+__decorate$27([
+    _angular_core.Output(),
+    __metadata$22("design:type", Object)
+], TbodyEditDeleteComponent.prototype, "custom2", void 0);
+__decorate$27([
+    _angular_core.Output(),
+    __metadata$22("design:type", Object)
+], TbodyEditDeleteComponent.prototype, "custom3", void 0);
+__decorate$27([
+    _angular_core.Output(),
+    __metadata$22("design:type", Object)
 ], TbodyEditDeleteComponent.prototype, "editRowSelect", void 0);
 TbodyEditDeleteComponent = __decorate$27([
     _angular_core.Component({
         selector: 'ng2-st-tbody-edit-delete',
         changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
-        template: "\n    <a href=\"#\" *ngIf=\"isActionEdit\" class=\"ng2-smart-action ng2-smart-action-edit-edit\"\n        [innerHTML]=\"editRowButtonContent\" (click)=\"onEdit($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionDelete\" class=\"ng2-smart-action ng2-smart-action-delete-delete\"\n        [innerHTML]=\"deleteRowButtonContent\" (click)=\"onDelete($event)\"></a>\n  ",
+        template: "\n    <a href=\"#\" *ngIf=\"isActionEdit\" class=\"ng2-smart-action ng2-smart-action-edit-edit\"\n        [innerHTML]=\"editRowButtonContent\" (click)=\"onEdit($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionDelete\" class=\"ng2-smart-action ng2-smart-action-delete-delete\"\n        [innerHTML]=\"deleteRowButtonContent\" (click)=\"onDelete($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom1\" class=\"ng2-smart-action ng2-smart-action-custom1-custom1\"\n        [innerHTML]=\"custom1RowButtonContent\" (click)=\"onCustom1($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom2\" class=\"ng2-smart-action ng2-smart-action-custom2-custom2\"\n        [innerHTML]=\"custom2RowButtonContent\" (click)=\"onCustom2($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom3\" class=\"ng2-smart-action ng2-smart-action-custom3-custom3\"\n        [innerHTML]=\"custom3RowButtonContent\" (click)=\"onCustom3($event)\"></a>\n  ",
     })
 ], TbodyEditDeleteComponent);
 
@@ -2940,6 +2992,9 @@ var Ng2SmartTableComponent = (function () {
         this.rowSelect = new _angular_core.EventEmitter();
         this.userRowSelect = new _angular_core.EventEmitter();
         this.delete = new _angular_core.EventEmitter();
+        this.custom1 = new _angular_core.EventEmitter();
+        this.custom2 = new _angular_core.EventEmitter();
+        this.custom3 = new _angular_core.EventEmitter();
         this.edit = new _angular_core.EventEmitter();
         this.create = new _angular_core.EventEmitter();
         this.custom = new _angular_core.EventEmitter();
@@ -2957,6 +3012,9 @@ var Ng2SmartTableComponent = (function () {
                 add: true,
                 edit: true,
                 delete: true,
+                custom1: true,
+                custom2: true,
+                custom3: true,
                 custom: [],
                 position: 'left',
             },
@@ -2980,6 +3038,18 @@ var Ng2SmartTableComponent = (function () {
             delete: {
                 deleteButtonContent: 'Delete',
                 confirmDelete: false,
+            },
+            custom1: {
+                custom1ButtonContent: 'Custom1',
+                confirmCustom1: false,
+            },
+            custom2: {
+                custom2ButtonContent: 'Custom2',
+                confirmCustom2: false,
+            },
+            custom3: {
+                custom3ButtonContent: 'Custom3',
+                confirmCustom3: false,
             },
             attr: {
                 id: '',
@@ -3124,6 +3194,18 @@ __decorate$40([
 __decorate$40([
     _angular_core.Output(),
     __metadata$34("design:type", Object)
+], Ng2SmartTableComponent.prototype, "custom1", void 0);
+__decorate$40([
+    _angular_core.Output(),
+    __metadata$34("design:type", Object)
+], Ng2SmartTableComponent.prototype, "custom2", void 0);
+__decorate$40([
+    _angular_core.Output(),
+    __metadata$34("design:type", Object)
+], Ng2SmartTableComponent.prototype, "custom3", void 0);
+__decorate$40([
+    _angular_core.Output(),
+    __metadata$34("design:type", Object)
 ], Ng2SmartTableComponent.prototype, "edit", void 0);
 __decorate$40([
     _angular_core.Output(),
@@ -3153,7 +3235,7 @@ Ng2SmartTableComponent = __decorate$40([
     _angular_core.Component({
         selector: 'ng2-smart-table',
         styles: [":host{font-size:1rem}:host /deep/ *{box-sizing:border-box}:host /deep/ button,:host /deep/ input,:host /deep/ optgroup,:host /deep/ select,:host /deep/ textarea{color:inherit;font:inherit;margin:0}:host /deep/ table{line-height:1.5em;border-collapse:collapse;border-spacing:0;display:table;width:100%;max-width:100%;overflow:auto;word-break:normal;word-break:keep-all}:host /deep/ table tr th{font-weight:700}:host /deep/ table tr section{font-size:.75em;font-weight:700}:host /deep/ table tr td,:host /deep/ table tr th{font-size:.875em;margin:0;padding:.5em 1em}:host /deep/ a{color:#1e6bb8;text-decoration:none}:host /deep/ a:hover{text-decoration:underline} /*# sourceMappingURL=ng2-smart-table.component.css.map */ "],
-        template: "<table [id]=\"tableId\" [ngClass]=\"tableClass\"><thead ng2-st-thead *ngIf=\"!isHideHeader || !isHideSubHeader\" [grid]=\"grid\" [isAllSelected]=\"isAllSelected\" [source]=\"source\" [createConfirm]=\"createConfirm\" (create)=\"create.emit($event)\" (selectAllRows)=\"onSelectAllRows($event)\" (sort)=\"sort($event)\" (filter)=\"filter($event)\"></thead><tbody ng2-st-tbody [grid]=\"grid\" [source]=\"source\" [deleteConfirm]=\"deleteConfirm\" [editConfirm]=\"editConfirm\" [rowClassFunction]=\"rowClassFunction\" (edit)=\"edit.emit($event)\" (delete)=\"delete.emit($event)\" (custom)=\"custom.emit($event)\" (userSelectRow)=\"onUserSelectRow($event)\" (editRowSelect)=\"editRowSelect($event)\" (multipleSelectRow)=\"multipleSelectRow($event)\" (rowHover)=\"onRowHover($event)\"></tbody></table><ng2-smart-table-pager *ngIf=\"isPagerDisplay\" [source]=\"source\" [perPageSelect]=\"perPageSelect\" (changePage)=\"changePage($event)\"></ng2-smart-table-pager>",
+        template: "<table [id]=\"tableId\" [ngClass]=\"tableClass\"><thead ng2-st-thead *ngIf=\"!isHideHeader || !isHideSubHeader\" [grid]=\"grid\" [isAllSelected]=\"isAllSelected\" [source]=\"source\" [createConfirm]=\"createConfirm\" (create)=\"create.emit($event)\" (selectAllRows)=\"onSelectAllRows($event)\" (sort)=\"sort($event)\" (filter)=\"filter($event)\"></thead><tbody ng2-st-tbody [grid]=\"grid\" [source]=\"source\" [deleteConfirm]=\"deleteConfirm\" [editConfirm]=\"editConfirm\" [rowClassFunction]=\"rowClassFunction\" (edit)=\"edit.emit($event)\" (delete)=\"delete.emit($event)\" (custom1)=\"custom1.emit($event)\" (custom2)=\"custom2.emit($event)\" (custom3)=\"custom3.emit($event)\" (custom)=\"custom.emit($event)\" (userSelectRow)=\"onUserSelectRow($event)\" (editRowSelect)=\"editRowSelect($event)\" (multipleSelectRow)=\"multipleSelectRow($event)\" (rowHover)=\"onRowHover($event)\"></tbody></table><ng2-smart-table-pager *ngIf=\"isPagerDisplay\" [source]=\"source\" [perPageSelect]=\"perPageSelect\" (changePage)=\"changePage($event)\"></ng2-smart-table-pager>",
     })
 ], Ng2SmartTableComponent);
 
