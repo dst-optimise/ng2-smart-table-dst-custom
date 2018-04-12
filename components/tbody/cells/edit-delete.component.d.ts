@@ -13,12 +13,20 @@ export declare class TbodyEditDeleteComponent implements OnChanges {
     custom1: EventEmitter<any>;
     custom2: EventEmitter<any>;
     custom3: EventEmitter<any>;
+    custom4: EventEmitter<any>;
+    custom5: EventEmitter<any>;
+    custom6: EventEmitter<any>;
+    custom7: EventEmitter<any>;
     editRowSelect: EventEmitter<any>;
     isActionEdit: boolean;
     isActionDelete: boolean;
     isActionCustom1: boolean;
     isActionCustom2: boolean;
     isActionCustom3: boolean;
+    isActionCustom4: boolean;
+    isActionCustom5: boolean;
+    isActionCustom6: boolean;
+    isActionCustom7: boolean;
     editRowButtonContent: string;
     deleteRowButtonContent: string;
     onEdit(event: any): void;
@@ -26,5 +34,9 @@ export declare class TbodyEditDeleteComponent implements OnChanges {
     onCustom1(event: any): void;
     onCustom2(event: any): void;
     onCustom3(event: any): void;
+    onCustom4(event: any): void;
+    onCustom5(event: any): void;
+    onCustom6(event: any): void;
+    onCustom7(event: any): void;
     ngOnChanges(): void;
 }

@@ -14,6 +14,10 @@ export declare class Ng2SmartTableTbodyComponent {
     custom1: EventEmitter<any>;
     custom2: EventEmitter<any>;
     custom3: EventEmitter<any>;
+    custom4: EventEmitter<any>;
+    custom5: EventEmitter<any>;
+    custom6: EventEmitter<any>;
+    custom7: EventEmitter<any>;
     custom: EventEmitter<any>;
     edited: EventEmitter<any>;
     userSelectRow: EventEmitter<any>;
@@ -31,6 +35,10 @@ export declare class Ng2SmartTableTbodyComponent {
     isActionCustom1: boolean;
     isActionCustom2: boolean;
     isActionCustom3: boolean;
+    isActionCustom4: boolean;
+    isActionCustom5: boolean;
+    isActionCustom6: boolean;
+    isActionCustom7: boolean;
     noDataMessage: boolean;
     ngOnChanges(): void;
 }

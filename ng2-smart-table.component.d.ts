@@ -14,6 +14,10 @@ export declare class Ng2SmartTableComponent implements OnChanges {
     custom1: EventEmitter<any>;
     custom2: EventEmitter<any>;
     custom3: EventEmitter<any>;
+    custom4: EventEmitter<any>;
+    custom5: EventEmitter<any>;
+    custom6: EventEmitter<any>;
+    custom7: EventEmitter<any>;
     deleteConfirm: EventEmitter<any>;
     editConfirm: EventEmitter<any>;
     createConfirm: EventEmitter<any>;

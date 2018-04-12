@@ -18,6 +18,10 @@ var TbodyEditDeleteComponent = (function () {
         this.custom1 = new EventEmitter();
         this.custom2 = new EventEmitter();
         this.custom3 = new EventEmitter();
+        this.custom4 = new EventEmitter();
+        this.custom5 = new EventEmitter();
+        this.custom6 = new EventEmitter();
+        this.custom7 = new EventEmitter();
         this.editRowSelect = new EventEmitter();
     }
     TbodyEditDeleteComponent.prototype.onEdit = function (event) {
@@ -86,17 +90,77 @@ var TbodyEditDeleteComponent = (function () {
             this.grid.custom3(this.row);
         }
     };
+    TbodyEditDeleteComponent.prototype.onCustom4 = function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.grid.getSetting('mode') === 'external') {
+            this.custom4.emit({
+                data: this.row.getData(),
+                source: this.source,
+            });
+        }
+        else {
+            this.grid.custom4(this.row);
+        }
+    };
+    TbodyEditDeleteComponent.prototype.onCustom5 = function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.grid.getSetting('mode') === 'external') {
+            this.custom5.emit({
+                data: this.row.getData(),
+                source: this.source,
+            });
+        }
+        else {
+            this.grid.custom5(this.row);
+        }
+    };
+    TbodyEditDeleteComponent.prototype.onCustom6 = function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.grid.getSetting('mode') === 'external') {
+            this.custom6.emit({
+                data: this.row.getData(),
+                source: this.source,
+            });
+        }
+        else {
+            this.grid.custom6(this.row);
+        }
+    };
+    TbodyEditDeleteComponent.prototype.onCustom7 = function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.grid.getSetting('mode') === 'external') {
+            this.custom7.emit({
+                data: this.row.getData(),
+                source: this.source,
+            });
+        }
+        else {
+            this.grid.custom7(this.row);
+        }
+    };
     TbodyEditDeleteComponent.prototype.ngOnChanges = function () {
         this.isActionEdit = this.grid.getSetting('actions.edit');
         this.isActionDelete = this.grid.getSetting('actions.delete');
         this.isActionCustom1 = this.grid.getSetting('actions.custom1');
         this.isActionCustom2 = this.grid.getSetting('actions.custom2');
         this.isActionCustom3 = this.grid.getSetting('actions.custom3');
+        this.isActionCustom4 = this.grid.getSetting('actions.custom4');
+        this.isActionCustom5 = this.grid.getSetting('actions.custom5');
+        this.isActionCustom6 = this.grid.getSetting('actions.custom6');
+        this.isActionCustom7 = this.grid.getSetting('actions.custom7');
         this.editRowButtonContent = this.grid.getSetting('edit.editButtonContent');
         this.deleteRowButtonContent = this.grid.getSetting('delete.deleteButtonContent');
         this.custom1RowButtonContent = this.grid.getSetting('custom1.custom1ButtonContent');
         this.custom2RowButtonContent = this.grid.getSetting('custom2.custom2ButtonContent');
         this.custom3RowButtonContent = this.grid.getSetting('custom3.custom3ButtonContent');
+        this.custom4RowButtonContent = this.grid.getSetting('custom4.custom4ButtonContent');
+        this.custom5RowButtonContent = this.grid.getSetting('custom5.custom5ButtonContent');
+        this.custom6RowButtonContent = this.grid.getSetting('custom6.custom6ButtonContent');
+        this.custom7RowButtonContent = this.grid.getSetting('custom7.custom7ButtonContent');
     };
     return TbodyEditDeleteComponent;
 }());
@@ -143,12 +207,28 @@ __decorate([
 __decorate([
     Output(),
     __metadata("design:type", Object)
+], TbodyEditDeleteComponent.prototype, "custom4", void 0);
+__decorate([
+    Output(),
+    __metadata("design:type", Object)
+], TbodyEditDeleteComponent.prototype, "custom5", void 0);
+__decorate([
+    Output(),
+    __metadata("design:type", Object)
+], TbodyEditDeleteComponent.prototype, "custom6", void 0);
+__decorate([
+    Output(),
+    __metadata("design:type", Object)
+], TbodyEditDeleteComponent.prototype, "custom7", void 0);
+__decorate([
+    Output(),
+    __metadata("design:type", Object)
 ], TbodyEditDeleteComponent.prototype, "editRowSelect", void 0);
 TbodyEditDeleteComponent = __decorate([
     Component({
         selector: 'ng2-st-tbody-edit-delete',
         changeDetection: ChangeDetectionStrategy.OnPush,
-        template: "\n    <a href=\"#\" *ngIf=\"isActionEdit\" class=\"ng2-smart-action ng2-smart-action-edit-edit\"\n        [innerHTML]=\"editRowButtonContent\" (click)=\"onEdit($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionDelete\" class=\"ng2-smart-action ng2-smart-action-delete-delete\"\n        [innerHTML]=\"deleteRowButtonContent\" (click)=\"onDelete($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom1\" class=\"ng2-smart-action ng2-smart-action-custom1-custom1\"\n        [innerHTML]=\"custom1RowButtonContent\" (click)=\"onCustom1($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom2\" class=\"ng2-smart-action ng2-smart-action-custom2-custom2\"\n        [innerHTML]=\"custom2RowButtonContent\" (click)=\"onCustom2($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom3\" class=\"ng2-smart-action ng2-smart-action-custom3-custom3\"\n        [innerHTML]=\"custom3RowButtonContent\" (click)=\"onCustom3($event)\"></a>\n  ",
+        template: "\n    <a href=\"#\" *ngIf=\"isActionEdit\" class=\"ng2-smart-action ng2-smart-action-edit-edit\"\n        [innerHTML]=\"editRowButtonContent\" (click)=\"onEdit($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionDelete\" class=\"ng2-smart-action ng2-smart-action-delete-delete\"\n        [innerHTML]=\"deleteRowButtonContent\" (click)=\"onDelete($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom1\" class=\"ng2-smart-action ng2-smart-action-custom1-custom1\"\n        [innerHTML]=\"custom1RowButtonContent\" (click)=\"onCustom1($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom2\" class=\"ng2-smart-action ng2-smart-action-custom2-custom2\"\n        [innerHTML]=\"custom2RowButtonContent\" (click)=\"onCustom2($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom3\" class=\"ng2-smart-action ng2-smart-action-custom3-custom3\"\n        [innerHTML]=\"custom3RowButtonContent\" (click)=\"onCustom3($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom4\" class=\"ng2-smart-action ng2-smart-action-custom4-custom4\"\n        [innerHTML]=\"custom4RowButtonContent\" (click)=\"onCustom4($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom5\" class=\"ng2-smart-action ng2-smart-action-custom5-custom5\"\n        [innerHTML]=\"custom5RowButtonContent\" (click)=\"onCustom5($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom6\" class=\"ng2-smart-action ng2-smart-action-custom6-custom6\"\n        [innerHTML]=\"custom6RowButtonContent\" (click)=\"onCustom6($event)\"></a>\n    <a href=\"#\" *ngIf=\"isActionCustom7\" class=\"ng2-smart-action ng2-smart-action-custom7-custom7\"\n        [innerHTML]=\"custom7RowButtonContent\" (click)=\"onCustom7($event)\"></a>\n  ",
     })
 ], TbodyEditDeleteComponent);
 export { TbodyEditDeleteComponent };

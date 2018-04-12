@@ -105,6 +105,50 @@
                     ]
                 }
                 ],
+                "custom4":[ {
+                    "__symbolic":"property",
+                    "decorators":[ {
+                        "__symbolic":"call",
+                        "expression": {
+                            "__symbolic": "reference", "module": "@angular/core", "name": "Output"
+                        }
+                    }
+                    ]
+                }
+                ],
+                "custom5":[ {
+                    "__symbolic":"property",
+                    "decorators":[ {
+                        "__symbolic":"call",
+                        "expression": {
+                            "__symbolic": "reference", "module": "@angular/core", "name": "Output"
+                        }
+                    }
+                    ]
+                }
+                ],
+                "custom6":[ {
+                    "__symbolic":"property",
+                    "decorators":[ {
+                        "__symbolic":"call",
+                        "expression": {
+                            "__symbolic": "reference", "module": "@angular/core", "name": "Output"
+                        }
+                    }
+                    ]
+                }
+                ],
+                "custom7":[ {
+                    "__symbolic":"property",
+                    "decorators":[ {
+                        "__symbolic":"call",
+                        "expression": {
+                            "__symbolic": "reference", "module": "@angular/core", "name": "Output"
+                        }
+                    }
+                    ]
+                }
+                ],
                 "edit":[ {
                     "__symbolic":"property",
                     "decorators":[ {
@@ -353,6 +397,50 @@
                 }
                 ],
                 "custom3":[ {
+                    "__symbolic":"property",
+                    "decorators":[ {
+                        "__symbolic":"call",
+                        "expression": {
+                            "__symbolic": "reference", "module": "@angular/core", "name": "Output"
+                        }
+                    }
+                    ]
+                }
+                ],
+                "custom4":[ {
+                    "__symbolic":"property",
+                    "decorators":[ {
+                        "__symbolic":"call",
+                        "expression": {
+                            "__symbolic": "reference", "module": "@angular/core", "name": "Output"
+                        }
+                    }
+                    ]
+                }
+                ],
+                "custom5":[ {
+                    "__symbolic":"property",
+                    "decorators":[ {
+                        "__symbolic":"call",
+                        "expression": {
+                            "__symbolic": "reference", "module": "@angular/core", "name": "Output"
+                        }
+                    }
+                    ]
+                }
+                ],
+                "custom6":[ {
+                    "__symbolic":"property",
+                    "decorators":[ {
+                        "__symbolic":"call",
+                        "expression": {
+                            "__symbolic": "reference", "module": "@angular/core", "name": "Output"
+                        }
+                    }
+                    ]
+                }
+                ],
+                "custom7":[ {
                     "__symbolic":"property",
                     "decorators":[ {
                         "__symbolic":"call",
