@@ -3,7 +3,7 @@ import { Column } from './column';
 import { DataSet } from './data-set';
 export declare class Row {
     index: number;
-    protected data: any;
+    data: any;
     protected _dataSet: DataSet;
     isSelected: boolean;
     isInEditing: boolean;
