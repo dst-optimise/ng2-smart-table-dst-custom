@@ -151,6 +151,7 @@ var Ng2SmartTableComponent = (function () {
             this.emitUserSelectRow(row);
             this.emitSelectRow(row);
         }
+        else this.multipleSelectRow(row);
     };
     Ng2SmartTableComponent.prototype.onRowHover = function (row) {
         this.rowHover.emit(row);
