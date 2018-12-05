@@ -32,6 +32,8 @@ import {
 var Ng2SmartTableComponent = (function () {
   function Ng2SmartTableComponent() {
     this.lastClick = 0;
+    this.checkboxClicked = false;
+    this.rowClicked = false;
     this.settings = {};
     this.rowSelect = new EventEmitter();
     this.userRowSelect = new EventEmitter();
@@ -168,7 +170,20 @@ var Ng2SmartTableComponent = (function () {
       this.grid.selectRow(row);
       this.emitUserSelectRow(row);
       this.emitSelectRow(row);
-    } else this.multipleSelectRow(row);
+    } else {
+      if(!this.checkboxClicked) {
+        this.resetAllSelector();
+        this.rowClicked = true;
+        this.grid.selectRow(row);
+        this.emitUserSelectRow(row);
+        this.emitSelectRow(row);
+      }
+      else {
+        this.resetAllSelector();
+        this.multipleSelectRow(row);
+        this.checkboxClicked = false
+      }
+    }
   };
   Ng2SmartTableComponent.prototype.onRowHover = function (row) {
     this.rowHover.emit(row);
@@ -176,10 +191,11 @@ var Ng2SmartTableComponent = (function () {
   Ng2SmartTableComponent.prototype.multipleSelectRow = function (row) {
     this.grid.multipleSelectRow(row);
     this.emitUserSelectRow(row);
-    this.emitSelectRow(row);
+    // this.emitSelectRow(row);
   };
   Ng2SmartTableComponent.prototype.onSelectAllRows = function ($event) {
     this.isAllSelected = !this.isAllSelected;
+    this.rowClicked = true
     this.grid.selectAllRows(this.isAllSelected);
     this.emitUserSelectRow(null);
     this.emitSelectRow(null);
@@ -225,6 +241,8 @@ var Ng2SmartTableComponent = (function () {
   Ng2SmartTableComponent.prototype.emitUserSelectRow = function (row) {
     if (this.lastClick === 0) {
       var selectedRows = this.grid.getSelectedRows();
+      if(!this.rowClicked) this.checkboxClicked = true;
+      else this.rowClicked = false
       this.userRowSelect.emit({
         data: row ? row.getData() : null,
         isSelected: row ? row.getIsSelected() : null,
